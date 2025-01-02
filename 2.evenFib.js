@@ -30,3 +30,4 @@ function fib() {
   return sum(numbers);
 }
 console.log(fib());
+// 4613732
