@@ -19,3 +19,4 @@ function getSumOfMultiplies() {
 }
 
 console.log(getSumOfMultiplies());
+// 233168
