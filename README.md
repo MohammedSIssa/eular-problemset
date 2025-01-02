@@ -210,3 +210,41 @@ function getSmallest(start, end) {
 console.log(getSmallest(1, 20)) // 232792560
 console.log(getSmallest(1, 10)) // 2520
 ```
+
+[Problem 6: Sum Square Difference](https://projecteuler.net/problem=6)
+
+- Question:
+
+![Question 6](./images/6.png)
+
+- Solution:
+
+``` JS
+function sumOfTheSquares(start = 1, end = 100) {
+  let sum = 0;
+  for (let i = start; i <= end; i++) {
+    let squared = i * i;
+    sum += squared;
+  }
+  return sum;
+}
+
+function squareOfTheSum(start = 1, end = 100) {
+  let sum = 0;
+  for (let i = start; i <= end; i++) {
+    sum += i;
+  }
+  return sum * sum;
+}
+
+function theDifference() {
+  return squareOfTheSum() - sumOfTheSquares();
+}
+
+function testDifference() {
+  return squareOfTheSum(1, 10) - sumOfTheSquares(1, 10);
+}
+
+console.log(theDifference()); // 25164150
+console.log(testDifference()); // 2640
+```
