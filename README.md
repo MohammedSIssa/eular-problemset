@@ -180,3 +180,33 @@ function getLargestPalindrome() {
 console.log(getLargestPalindrome());
 // 906609
 ```
+[Problem 5: Smallest Multiple](https://projecteuler.net/problem=5)
+
+- Question: 
+
+![Question 5](./images/5.png)
+
+- Solution:
+
+``` JS
+function getSmallest(start, end) {
+  let found = false
+  let number = end - start
+  while(!found) {
+    for(let i = start; i <= end; i++){
+      if (number % i === 0){
+        found = true
+      }
+      else {
+        number += 1
+        found = false
+        break
+      }
+    }
+  }
+  return number
+}
+
+console.log(getSmallest(1, 20)) // 232792560
+console.log(getSmallest(1, 10)) // 2520
+```
