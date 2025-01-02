@@ -9,8 +9,6 @@
 
 - Solution:
 ``` JS
-// get the sum of all numbers that are multiplies of 3 or 5 below 1000
-
 function sum(list) {
   let total = 0;
   for (let i = 0; i < list.length; i++) {
@@ -42,8 +40,6 @@ console.log(getSumOfMultiplies());
 - Solution
 
 ``` JS
-// get the sum of even numbers in the fibonacci sequence
-
 const MAX_VALUE = 4000000;
 
 function sum(list) {
@@ -86,10 +82,6 @@ console.log(fib());
 - Solution:
 
 ``` JS
-// the prime factors of 13195 are 5, 7, 13, and 29
-
-// what is the largest prime factor for 600851475143?
-
 const TARGET = 60085147;
 // rest 5143 removed for performance issues
 
@@ -141,4 +133,50 @@ function makeFactorsList() {
 
 console.log(getLargetPrimeFactor());
 // 1397329
+```
+
+[Problem 4: Largest Palindrome Product](https://projecteuler.net/problem=4)
+
+- Question:
+
+![Question 3](./images/4.png)
+
+- Solution:
+
+``` JS
+function checkPalindrome(num) {
+  return (num + "").split("").reverse().join("") === num + "";
+}
+
+function getMax(list) {
+  if (list.length > 0) {
+    let max = list[0];
+    for (let i = 1; i < list.length; i++) {
+      if (list[i] > max) {
+        max = list[i];
+      }
+    }
+    return max;
+  }
+}
+
+function makePalindromesList() {
+  let pList = [];
+  for (let i = 100; i <= 999; i++) {
+    for (let j = 100; j <= 999; j++) {
+      let multiplied = i * j;
+      if (checkPalindrome(multiplied)) {
+        pList.push(multiplied);
+      }
+    }
+  }
+  return pList;
+}
+
+function getLargestPalindrome() {
+  return getMax(makePalindromesList());
+}
+
+console.log(getLargestPalindrome());
+// 906609
 ```
