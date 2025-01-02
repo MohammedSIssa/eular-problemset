@@ -83,3 +83,11 @@ function getLargestProduct() {
 }
 
 console.log(getLargestProduct());
+// {
+//   value: 14108774400,
+//   numbers: [
+//     3, 5, 5, 7, 6, 6,
+//     8, 9, 6, 6, 4, 8,
+//     9
+//   ]
+// }
