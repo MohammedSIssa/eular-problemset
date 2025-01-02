@@ -11,8 +11,6 @@ function getLargetPrimeFactor() {
   return getMax(makePrimeFactorsList());
 }
 
-console.log(getLargetPrimeFactor());
-
 function getMax(list) {
   if (list.length > 0) {
     let max = list[0];
@@ -52,3 +50,6 @@ function makeFactorsList() {
   }
   return factors;
 }
+
+console.log(getLargetPrimeFactor());
+// 1397329
