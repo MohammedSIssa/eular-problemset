@@ -1,11 +1,11 @@
 ### My Eular Problemset Solutions
 
-##### [Project Eular](https://projecteuler.net/archives)
+[Project Eular's Link](https://projecteuler.net/archives)
 
 [Problem 1: Multiples of 3 or 5](https://projecteuler.net/problem=1)
 - Question:
 
-![Question 1](./1.png)
+![Question 1](./images/1.png)
 
 - Solution:
 ``` JS
@@ -32,3 +32,4 @@ function getSumOfMultiplies() {
 console.log(getSumOfMultiplies());
 // 233168
 ```
+
