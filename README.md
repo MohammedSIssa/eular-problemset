@@ -484,7 +484,7 @@ function sumOfPrimes() {
 }
 
 console.log(sumOfPrimes())
-// 142,913,828,922
+// 142913828922
 ```
 
 [Problem 11: Largest Product in a Grid](https://projecteuler.net/problem=11)
