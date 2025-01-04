@@ -647,7 +647,7 @@ function findTriangularNumber(minDivisors){
   let n = 1
   let triangularNumber
   while(true){
-    triangularNumber = (n*(n+1))/2
+    triangularNumber = ( n * ( n + 1 )) / 2
     if(countDivisors(triangularNumber) > minDivisors){
       return triangularNumber
     }
