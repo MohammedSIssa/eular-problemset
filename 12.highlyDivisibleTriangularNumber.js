@@ -1,8 +1,8 @@
 function countDivisors(num) {
-  let numberOfDivisors = 0
-  for(let i = 1; i <= num; i++){
+  let numberOfDivisors = 2
+  for(let i = 1; i <= Math.floor(Math.sqrt(num)); i++){
     if(num % i === 0){
-      numberOfDivisors++
+      numberOfDivisors += 2
     }
   }
   return numberOfDivisors
@@ -12,7 +12,7 @@ function findTriangularNumber(minDivisors){
   let n = 1
   let triangularNumber
   while(true){
-    triangularNumber = (n*(n+1))/2
+    triangularNumber = ( n * ( n + 1 ) ) / 2
     if(countDivisors(triangularNumber) > minDivisors){
       return triangularNumber
     }

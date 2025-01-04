@@ -634,10 +634,10 @@ console.log(getLargestProductGrid())
 
 ``` JS
 function countDivisors(num) {
-  let numberOfDivisors = 0
-  for(let i = 1; i <= num; i++){
+  let numberOfDivisors = 2
+  for(let i = 1; i <= Math.floor(Math.sqrt(num)); i++){
     if(num % i === 0){
-      numberOfDivisors++
+      numberOfDivisors += 2
     }
   }
   return numberOfDivisors
