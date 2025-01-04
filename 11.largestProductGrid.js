@@ -77,7 +77,7 @@ function makeDiagonalRight(list) {
 function makeDiagonalLeft(list) {
   let dlList = [], dl1, dl2, dl3, dl4, dlItems = []
   for(let i = 0; i < list.length - NUM_OF_ADJACENTS; i++){
-    for(let j = NUM_OF_ADJACENTS - 1; j < list[i].length - NUM_OF_ADJACENTS; j++){
+    for(let j = NUM_OF_ADJACENTS - 1; j < list[i].length; j++){
       dl1 = list[i + 0][j - 0]
       dl2 = list[i + 1][j - 1]
       dl3 = list[i + 2][j - 2]
