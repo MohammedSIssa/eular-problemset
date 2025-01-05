@@ -2,54 +2,17 @@
 
 // what is the largest prime factor for 600851475143?
 
-const TARGET = 60085147;
-// rest 5143 removed for performance issues
+const TARGET = 600851475143;
 
-const TEST = 13195;
-
-function getLargetPrimeFactor() {
-  return getMax(makePrimeFactorsList());
-}
-
-function getMax(list) {
-  if (list.length > 0) {
-    let max = list[0];
-    for (let i = 1; i < list.length; i++) {
-      if (list[i] > max) {
-        max = list[i];
-      }
+function getLargestPrimeFactor(number) {
+  let i = 2
+  while( i * i < number) {
+    while(number % i === 0) {
+      number /= i
     }
-    return max;
+    i += 1
   }
+  return number
 }
 
-function makePrimeFactorsList() {
-  return makeFactorsList().filter((num) => checkPrime(num));
-}
-
-function checkPrime(num) {
-  if (num <= 1) {
-    return false;
-  } else {
-    for (let i = 2; i * i <= num; i++) {
-      if (num % i === 0) {
-        return false;
-      }
-    }
-    return true;
-  }
-}
-
-function makeFactorsList() {
-  let factors = [];
-  let target = TARGET
-  for (let i = 2; i <= target; i++) {
-    if (target % i === 0) {
-      factors.push(i);
-    }
-  }
-  return factors;
-}
-
-console.log(getLargetPrimeFactor());
-// 1397329
+console.log(getLargestPrimeFactor(TARGET))
