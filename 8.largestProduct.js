@@ -17,7 +17,7 @@ function getMaxProduct(str) {
     if(stringDoesntHasZero(subset)){
       product = getProduct(subset)
       if(product > max) {
-        numbers = subset.split('').map(number => parseInt(number))
+        numbers = [...subset].map(number => parseInt(number))
         max = product
       }
     }
@@ -26,8 +26,7 @@ function getMaxProduct(str) {
 }
 
 function stringDoesntHasZero(str) {
-  let arr = str.split('')
-  if(arr.includes('0')) {
+  if([...str].includes('0')) {
     return false
   }
   return true
