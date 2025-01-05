@@ -3,91 +3,42 @@ let series =
 
 const NUM_OF_ADJECENTS = 13;
 
-function getMax(list) {
-  if (list.length > 0) {
-    let maxValue = list[0].value;
-    let maxNums = list[0].numbers;
-    for (let i = 1; i < list.length; i++) {
-      if (list[i].value > maxValue) {
-        maxValue = list[i].value;
-        maxNums = list[i].numbers;
+function getProduct(str) {
+  return [...str].reduce((curr, prev) => +curr * +prev, 1)
+}
+
+function getMaxProduct(str) {
+  // create all subsets that has no zero
+  let product = 1
+  let numbers
+  max = getProduct(str.slice(0,13))
+  for(let i = 0; i < str.length - NUM_OF_ADJECENTS; i++){
+    let subset = str.slice(i, i+NUM_OF_ADJECENTS)
+    if(stringDoesntHasZero(subset)){
+      product = getProduct(subset)
+      if(product > max) {
+        numbers = subset.split('').map(number => parseInt(number))
+        max = product
       }
     }
-    return { value: maxValue, numbers: maxNums };
   }
+  return { value: max, numbers }
 }
 
-function filterData() {
-  const noZeroes = series.split("0");
-  const valid = noZeroes.filter((item) => item.length >= NUM_OF_ADJECENTS);
-  const datasetStr = valid.map((item) => item.split(""));
-  const datasetInt = datasetStr.map((itemArr) =>
-    itemArr.map((item) => parseInt(item))
-  );
-
-  return datasetInt;
-}
-
-function makeProductAndReturnMaxOne(arr) {
-  let n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12, n13, product, max;
-  let theNumbers
-  max =
-    arr[0] *
-    arr[1] *
-    arr[2] *
-    arr[3] *
-    arr[4] *
-    arr[5] *
-    arr[6] *
-    arr[7] *
-    arr[8] *
-    arr[9] *
-    arr[10] *
-    arr[11] *
-    arr[12];
-  for (let i = 1; i < arr.length - NUM_OF_ADJECENTS; i++) {
-    n1 = arr[i + 0];
-    n2 = arr[i + 1];
-    n3 = arr[i + 2];
-    n4 = arr[i + 3];
-    n5 = arr[i + 4];
-    n6 = arr[i + 5];
-    n7 = arr[i + 6];
-    n8 = arr[i + 7];
-    n9 = arr[i + 8];
-    n10= arr[i + 9];
-    n11= arr[i + 10];
-    n12= arr[i + 11];
-    n13= arr[i + 12];
-
-    product =
-      n1 * n2 * n3 * n4 * n5 * n6 * n7 * n8 * n9 * n10 * n11 * n12 * n13;
-
-    if (product >= max) {
-      theNumbers = [n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12, n13];
-      max = product;
-    }
+function stringDoesntHasZero(str) {
+  let arr = str.split('')
+  if(arr.includes('0')) {
+    return false
   }
-  return {
-    numbers: theNumbers,
-    value: max,
-  };
+  return true
 }
 
-function maxProdutsArray() {
-  return filterData().map((itemArr) => makeProductAndReturnMaxOne(itemArr));
-}
-
-function getLargestProduct() {
-  return getMax(maxProdutsArray());
-}
-
-console.log(getLargestProduct());
+console.log(getMaxProduct(series))
 // {
-//   value: 14108774400,
+//   value: 23514624000,
 //   numbers: [
-//     3, 5, 5, 7, 6, 6,
-//     8, 9, 6, 6, 4, 8,
-//     9
+//     5, 5, 7, 6, 6, 8,
+//     9, 6, 6, 4, 8, 9,
+//     5
 //   ]
 // }
