@@ -745,3 +745,28 @@ console.log(result)
 //  startingNumber: 837799 
 // }
 ```
+
+[Problem 15: Lattice Paths](https://projecteuler.net/problem=15)
+
+- Question:
+
+![Question 15](./images/15.png)
+
+- Solution:
+
+``` JS
+const gridSize = 20
+const pathMoves = gridSize * 2
+
+function factorial(n) {
+  if (n == 1){
+    return 1
+  }else {
+    return n * factorial(n - 1)
+  }
+}
+
+const mathFormula = (factorial(pathMoves) / (factorial(gridSize) * factorial(gridSize)))
+console.log(mathFormula)
+// 137846528820
+```
