@@ -770,3 +770,22 @@ const mathFormula = (factorial(pathMoves) / (factorial(gridSize) * factorial(gri
 console.log(mathFormula)
 // 137846528820
 ```
+
+[Problem 16: Power Digit Sum](https://projecteuler.net/problem=16)
+
+- Question:
+
+![Question 16](./images/16.png)
+
+- Solution:
+
+``` JS
+let number = BigInt(2) ** BigInt(1000)
+
+function getSum(str) {
+  return [...str].reduce((curr, prev) => +curr + +prev)
+}
+
+console.log(getSum(number.toString()))
+// 1366
+```
