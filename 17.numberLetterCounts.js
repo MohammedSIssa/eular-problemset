@@ -53,7 +53,6 @@ function countLetters(number) {
     } else {
       let nn = countLetters(Math.floor(number / 10) * 10);
       let n = countLetters(number % 10);
-
       return nn + n;
     }
   } else if (number >= 100 && number < 1000) {
@@ -61,16 +60,13 @@ function countLetters(number) {
       return hunderds[number];
     } else {
       let nnn = countLetters(Math.floor(number / 100) * 100);
-
       let digitTwo = Math.floor(number / 10) % 10;
       if (digitTwo === 1) {
-        let nn = countLetters(digitTwo * 10 + (number % 10));
+        let nn = countLetters(10 + (number % 10));
         return nnn + nn + 3;
       }
-
       let nn = countLetters((Math.floor(number / 10) % 10) * 10);
       let n = countLetters(number % 10);
-
       return nnn + nn + n + 3;
     }
   } else if (number === 1000) {
