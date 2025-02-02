@@ -19,7 +19,7 @@ function getTotalSundaysAtFirstOfMonth(currentYear, currentSunday) {
   }
 
   return {
-    hits: hit,
+    hit,
     sundayOnNewYear: currentSunday
   }
 }
@@ -29,12 +29,11 @@ function solution() {
   let s = a.sundayOnNewYear
   let b
   for(let i = 1902; i <= 2000; i++) {
-    b = getTotalSundaysAtFirstOfMonth(i, s)
+    b = getTotalSundaysAtFirstOfMonth(i , s)
     s = b.sundayOnNewYear
   }
-  return b.hits
+  return b.hit
 }
-
 const result = solution()
 console.log(result)
 // 171
