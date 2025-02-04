@@ -976,3 +976,28 @@ const result = solution()
 console.log(result)
 // 171
 ```
+
+[Problem 20: Factorial Digit Sum](https://projecteuler.net/problem=20)
+
+- Question:
+
+![Question 20](./images/20.png)
+
+``` JS 
+function factorial(n) {
+  let result = BigInt(1);
+  for (let i = 2; i <= n; i++) {
+      result *= BigInt(i);
+  }
+  return result;
+}
+
+function solution(number) {
+  const strArr = [...(BigInt(factorial(number)) + '')]
+  return strArr.reduce((curr, prev) => +curr + +prev, 0)
+}
+
+const result = solution(100)
+console.log(result)
+// 648
+```
