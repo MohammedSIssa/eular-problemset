@@ -1001,3 +1001,112 @@ const result = solution(100)
 console.log(result)
 // 648
 ```
+
+[Problem 21: Amicable Number](https://projecteuler.net/problem=21)
+
+- Question:
+
+![Question 20](./images/21.png)
+
+``` JS
+function d(n) {
+  let numbers = []
+  for(let i = 1; i < n; i++) {
+    if(n % i === 0) {
+      numbers.push(i)
+    }
+  }
+  return numbers.reduce((curr, prev) => curr + prev, 0)
+}
+
+// console.log(d(220), d(284))
+
+let a = 220
+let b = 284
+
+if(d(a) === b && d(b) === a) {
+  console.log(a, b, 'amicable')
+}
+
+const LIMIT = 10000
+
+function solution() {
+  let amicableNumbers = []
+  let under1000sum = 504
+  let under2000sum = under1000sum + 2394
+  let under3000sum = under2000sum + 5544
+  let under4000sum = under3000sum + 0
+  let under5000sum = under4000sum + 0
+  let under6000sum = under5000sum + 10584
+  let under7000sum = under6000sum + 12600
+  let under8000sum = under7000sum + 0
+  let under9000sum = under8000sum + 0
+  let under10000sum= under9000sum + 0
+
+  // for(let a = LIMIT - 1000; a < LIMIT - 1; a++) {
+  //   for(let b = a + 1; b < LIMIT; b++) {
+  //     if(d(a) === b && d(b) === a) {
+  //       amicableNumbers.push(a)
+  //       amicableNumbers.push(b)
+  //     }
+  //   }
+  // }
+  return under10000sum
+  // return {amicableNumbers, sum: amicableNumbers.reduce((curr, prev) => curr + prev, 0)}
+}
+
+console.log(solution())
+
+// 31626
+```
+
+
+[Problem 22: Name Scores](https://projecteuler.net/problem=22)
+
+- Question:
+
+![Question 20](./images/22.png)
+
+``` JS
+const fs = require('node:fs');
+
+const letterValue = {
+  'A': 1,'B': 2,'C': 3,'D': 4,'E': 5,'F': 6,'G': 7,'H': 8,'I': 9,'J': 10,'K': 11,'L': 12,'M': 13,'N': 14,'O': 15,'P': 16,'Q': 17,'R': 18,'S': 19,'T': 20,'U': 21,'V': 22,'W': 23,'X': 24,'Y': 25,'Z': 26
+}
+
+let alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+for(let i = 0; i < alpha.length; i++) {
+  letterValue[alpha[i]] = i+1
+}
+
+console.log(letterValue)
+
+fs.readFile('names.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  let filteredData = data.split(",")
+  filteredData = filteredData.map(item => item.replace('"', ''))
+  filteredData = filteredData.map(item => item.replace('"', ''))
+  filteredData = filteredData.sort()
+  // console.log(filteredData)
+  let result = 0
+  for(let i = 0; i < filteredData.length; i++) {
+    result += getNameTotal(filteredData[i])
+  }
+  console.log(result)
+
+  function getNameTotal(name) {
+    let totalForName = 0
+    for(let i = 0; i < name.length; i++) {
+      totalForName += letterValue[name[i]]
+    }
+    let idx = filteredData.indexOf(name) + 1
+    return idx * totalForName
+  }
+});
+
+// 871198282
+```
